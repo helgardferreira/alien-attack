@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://diwe1y2ht0fyo"]
+
+[ext_resource type="Texture2D" uid="uid://dpwbw23x53xt1" path="res://assets/textures/player_ship.png" id="1_2bkq5"]
+[ext_resource type="AudioStream" uid="uid://bvancnpbi3sy2" path="res://assets/audio/sfx_laser2.wav" id="2_sm2y8"]
+
+[sub_resource type="Gradient" id="Gradient_ftx28"]
+offsets = PackedFloat32Array(0.0125, 0.70625, 1)
+colors = PackedColorArray(1, 0.717647, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tvfxt"]
+gradient = SubResource("Gradient_ftx28")
+
+[sub_resource type="Curve" id="Curve_hxu2m"]
+_data = [Vector2(0, 0.521176), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xcqn"]
+curve = SubResource("Curve_hxu2m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s6rjf"]
+lifetime_randomness = 0.1
+emission_shape = 3
+emission_box_extents = Vector3(1, 8, 1)
+particle_flag_disable_z = true
+spread = 34.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = -200.0
+initial_velocity_max = -200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_4xcqn")
+color_ramp = SubResource("GradientTexture1D_tvfxt")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvejc"]
+radius = 38.0
+height = 108.0
+
+[node name="Player" type="Player"]
+
+[node name="FlameParticles" type="GPUParticles2D" parent="."]
+position = Vector2(-38, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_s6rjf")
+lifetime = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2bkq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xvejc")
+
+[node name="RocketContainer" type="Node" parent="."]
+
+[node name="PlayerShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sm2y8")
+volume_db = -10.0

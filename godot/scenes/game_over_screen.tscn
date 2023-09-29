@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8k0yklmwc20n"]
+
+[ext_resource type="FontFile" uid="uid://bbc4bi37lbow2" path="res://assets/font/Kenney Blocks.ttf" id="1_smith"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at3fg"]
+bg_color = Color(0.137255, 0.180392, 0.290196, 0.784314)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_di70v"]
+font = ExtResource("1_smith")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_5b3jp"]
+font = ExtResource("1_smith")
+font_size = 30
+font_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rlon"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jxh1"]
+bg_color = Color(0, 0, 0, 0.352941)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piq7p"]
+bg_color = Color(0, 0, 0, 0.156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GameOverScreen" type="GameOverScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 21.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = -189.0
+offset_right = 341.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_at3fg")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -119.0
+offset_right = 208.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_di70v")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -28.5
+offset_right = 115.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE: 9999"
+label_settings = SubResource("LabelSettings_5b3jp")
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = 53.0
+offset_right = 83.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_smith")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rlon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8jxh1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_piq7p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_piq7p")
+text = "RETRY?"

@@ -1,0 +1,8 @@
+# Godot 4+ specific ignores
+.godot/
+
+# To prevent leaking export relevant information
+export_presets.cfg
+
+# Project export
+build/
